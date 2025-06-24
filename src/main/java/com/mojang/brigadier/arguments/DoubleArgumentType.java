@@ -10,6 +10,8 @@ import java.util.Arrays;
 import java.util.Collection;
 
 public class DoubleArgumentType implements ArgumentType<Double> {
+  private static final DoubleArgumentType ALL =
+      new DoubleArgumentType(-Double.MAX_VALUE, Double.MAX_VALUE);
   private static final Collection<String> EXAMPLES =
       Arrays.asList("0", "1.2", ".5", "-1", "-.5", "-1234.56");
 
@@ -22,7 +24,7 @@ public class DoubleArgumentType implements ArgumentType<Double> {
   }
 
   public static DoubleArgumentType doubleArg() {
-    return doubleArg(-Double.MAX_VALUE);
+    return ALL;
   }
 
   public static DoubleArgumentType doubleArg(final double min) {

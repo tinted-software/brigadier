@@ -10,6 +10,8 @@ import java.util.Arrays;
 import java.util.Collection;
 
 public class FloatArgumentType implements ArgumentType<Float> {
+  private static final FloatArgumentType ALL =
+      new FloatArgumentType(-Float.MAX_VALUE, Float.MAX_VALUE);
   private static final Collection<String> EXAMPLES =
       Arrays.asList("0", "1.2", ".5", "-1", "-.5", "-1234.56");
 
@@ -22,7 +24,7 @@ public class FloatArgumentType implements ArgumentType<Float> {
   }
 
   public static FloatArgumentType floatArg() {
-    return floatArg(-Float.MAX_VALUE);
+    return ALL;
   }
 
   public static FloatArgumentType floatArg(final float min) {
